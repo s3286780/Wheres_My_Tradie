@@ -1,0 +1,41 @@
+
+
+DROP DATABASE IF EXISTS tradie_mm;
+CREATE DATABASE tradie_mm;
+
+USE tradie_mm;
+
+-- 
+CREATE TABLE tradie_users (
+	user_id INT NOT NULL AUTO_INCREMENT,
+	user_email VARCHAR(50) NOT NULL,
+	user_phone VARCHAR(20),
+	PRIMARY KEY (user_id)
+);
+
+CREATE TABLE tradie_requests (
+	request_id INT NOT NULL AUTO_INCREMENT,
+	location VARCHAR(200) NOT NULL,
+	description TEXT NOT NULL,
+	submission_date DATE NOT NULL,
+	user_id INT NOT NULL,
+	PRIMARY KEY (request_id),
+	FOREIGN KEY (user_id) REFERENCES tradie_users(user_id)
+		ON DELETE CASCADE
+		ON UPDATE RESTRICT
+);
+
+CREATE TABLE tradie_services (
+	service_id INT NOT NULL AUTO_INCREMENT,
+	service_name VARCHAR(50),
+	PRIMARY KEY (service_id)
+);
+
+CREATE TABLE request_services (
+	id INT NOT NULL AUTO_INCREMENT,
+	request_id INT NOT NULL,
+	service_id INT NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (request_id) REFERENCES tradie_requests(request_id),
+	FOREIGN KEY (service_id) REFERENCES tradie_services(service_id)
+);
