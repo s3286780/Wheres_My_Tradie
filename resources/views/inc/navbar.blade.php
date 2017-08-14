@@ -29,13 +29,12 @@
 
                 @if (Auth::guest())
                     <li><a href="/about">About</a></li>
-                    <li><a href='/advertisement'>Ads</a></li>  
                 @else
                     @if (Auth::user()->account == '0')
                         <li><a href="/home">Home</a></li> 
                         <li><a href="/about">About</a></li>
                         <li><a href='/advertisement'>Ads</a></li>  
-                        <li><a href="/about">Find Service</a></li>
+                        <li><a href="/about">Find My Tradie</a></li>
                     @elseif (Auth::user()->account == '1')
                         <li><a href="/home">Home</a></li>  
                         <li><a href="/about">About</a></li> 
@@ -58,7 +57,7 @@
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                Logout
+                                <span class="glyphicon glyphicon-log-out"></span> Logout
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -67,7 +66,7 @@
                         </li>
                     
                         <li>
-                            <a href="">{{ Auth::user()->name }}</a>
+                         <a href=""><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a>
                         </li>
 
                 @endif
