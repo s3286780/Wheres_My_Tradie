@@ -15,7 +15,8 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        $ads =  Advertisement::all();
+        //$ads =  Advertisement::all();
+        $ads = Advertisement::orderBy('created_at', 'desc')->paginate(1);
         return view('advertisements.index')->with('ads', $ads);
     }
 
