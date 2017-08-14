@@ -29,6 +29,7 @@
 
                 @if (Auth::guest())
                     <li><a href="/about">About</a></li>
+                    <li><a href="/advertisement">Ads</a></li>
                 @else
                     @if (Auth::user()->account == '0')
                         <li><a href="/home">Home</a></li> 

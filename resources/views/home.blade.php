@@ -9,15 +9,28 @@
 
                 <div class="panel-body">
                     
-                    @if (Auth::user()->account == '0')
-                        <a href="" class="btn btn-success">New Search</a>
-                        <h3>Your Searches</h3>
-
-                    @elseif (Auth::user()->account == '1')
-                        <a href="/advertisement/create" class="btn btn-success">Create Ad</a>
-                        <h3>Your Ads</h3>
-
+                    <h3>Your Blog Posts</h3>
+                    @if(count($ads) > 0)
+                    <p>You have ads</p>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Title</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            @foreach($ads as $ad)
+                                <tr>
+                                    <td>{{$ad->name}}</td>
+                                    <td><a href="/advertisements/{{$ad->id}}/edit" class="btn btn-default">Edit</td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                            
+                        </table>
+                    @else
+                        <p>You have no posts</p>
                     @endif
+
                 </div>
             </div>
         </div>

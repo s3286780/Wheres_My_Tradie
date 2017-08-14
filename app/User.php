@@ -30,8 +30,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-  /* public function ads()
+   public function advertisements()
     {
         return $this->hasMany('App\Advertisement');
-    }*/
+    }
 }

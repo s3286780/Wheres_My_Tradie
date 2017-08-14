@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Advertisement;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$user_id = auth()->user()->id;
-        //$user = User::find($user_id);
-        return view('home');//->with('advertisements', $user->ads);
+        $id = auth()->user()->id;
+        //$user = Advertisement::find($user_id);
+        //$ads = Advertisement::all();
+        $ads = Advertisement::where('user','=',auth()->user()->id)->get();
+        return view('home')->with('ads', $ads);
+
+        /*$user = auth()->user()->id;
+        $ads = User::find($user);
+        return view('home')->with('ads', $ads->advertisements);*/
 
     }
 }

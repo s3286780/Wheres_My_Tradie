@@ -11,7 +11,7 @@
     </div>
     @endforeach
     <div class='text-center'>
-    {{$ads->links()}}
+        {{$ads->links()}}
     </div>
 @else
     <p>Sorry! There is currently no ads at the moment. Please come back later.</P>
