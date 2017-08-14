@@ -18,7 +18,10 @@
     </div>
     <small>Created on {{$ad->created_at}}</small>
     <div>
+        @if(Auth::user()->account == '0')
         <a href="/advertisement" class="btn btn-primary">Back</a>
+        @endif
         <a href="/home" class="btn btn-success">Home</a>
+        
     </div>
 @endsection

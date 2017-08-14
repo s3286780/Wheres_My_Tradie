@@ -25,9 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id = auth()->user()->id;
-        //$user = Advertisement::find($user_id);
-        //$ads = Advertisement::all();
         $ads = Advertisement::where('user','=',auth()->user()->id)->get();
         return view('home')->with('ads', $ads);
 
