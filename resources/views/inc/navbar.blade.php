@@ -31,21 +31,22 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/advertisement">Ads</a></li>
                 @else
+                    <li><a href="/home">Home</a></li> 
+                    <li><a href="/about">About</a></li>
+
                     @if (Auth::user()->account == '0')
-                        <li><a href="/home">Home</a></li> 
-                        <li><a href="/about">About</a></li>
+                        
                         <li><a href='/advertisement'>Ads</a></li>  
                         <li><a href="/about">Find My Tradie</a></li>
                     @elseif (Auth::user()->account == '1')
-                        <li><a href="/home">Home</a></li>  
-                        <li><a href="/about">About</a></li> 
+
                         <li><a href="/advertisement/create">Create Ad</a></li>   
-                                           
                     @endif                 
                 @endif
                 
             </ul>
 
+            
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
